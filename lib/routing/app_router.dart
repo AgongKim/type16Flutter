@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:type16_project/presentation/base/base_scaffold_navigation.dart';
-import 'package:type16_project/presentation/home/home_screen.dart';
+import 'package:type16_project/presentation/mbti/mbti_detail_screen.dart';
+import 'package:type16_project/presentation/mbti/mbti_screen.dart';
 import 'package:type16_project/routing/app_startup.dart';
 
 part 'app_router.g.dart';
@@ -59,8 +60,19 @@ GoRouter goRouter(Ref ref) {
                     name: AppRoute.mbti.name,
                     parentNavigatorKey: _mbtiNavigatorKey,
                     pageBuilder: (context, state) {
-                      return const MaterialPage(child: Placeholder());
-                    })
+                      return const MaterialPage(child: MbtiScreen());
+                    },
+                    routes: [
+                      GoRoute(
+                        path:'detail',
+                        name: AppRoute.mbtiDetail.name,
+                        parentNavigatorKey: _mbtiNavigatorKey,
+                        pageBuilder: (context, state) {
+                          return MaterialPage(child: MbtiDetailScreen());
+                        }
+                      ),
+                    ]
+                ),
               ]),
               StatefulShellBranch(navigatorKey: _debateNavigatorKey, routes: [
                 GoRoute(
