@@ -3,19 +3,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:type16_project/presentation/base/base_scaffold_navigation.dart';
-import 'package:type16_project/presentation/mbti/mbti_detail_screen.dart';
-import 'package:type16_project/presentation/mbti/mbti_screen.dart';
+import 'package:type16_project/presentation/personality/personality_detail_screen.dart';
+import 'package:type16_project/presentation/personality/personality_screen.dart';
 import 'package:type16_project/routing/app_startup.dart';
 
 part 'app_router.g.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _articleNavigatorKey = GlobalKey<NavigatorState>();
-final _mbtiNavigatorKey = GlobalKey<NavigatorState>();
+final _personalityNavigatorKey = GlobalKey<NavigatorState>();
 final _debateNavigatorKey = GlobalKey<NavigatorState>();
 final _moreNavigatorKey = GlobalKey<NavigatorState>();
 
-enum AppRoute { startup, article, mbti, mbtiDetail, debate, more }
+enum AppRoute { startup, article, personality, personalityDetail, debate, more }
 
 @riverpod
 GoRouter goRouter(Ref ref) {
@@ -54,21 +54,21 @@ GoRouter goRouter(Ref ref) {
                       return const MaterialPage(child: Placeholder());
                     })
               ]),
-              StatefulShellBranch(navigatorKey: _mbtiNavigatorKey, routes: [
+              StatefulShellBranch(navigatorKey: _personalityNavigatorKey, routes: [
                 GoRoute(
-                    path: '/mbti',
-                    name: AppRoute.mbti.name,
-                    parentNavigatorKey: _mbtiNavigatorKey,
+                    path: '/personality',
+                    name: AppRoute.personality.name,
+                    parentNavigatorKey: _personalityNavigatorKey,
                     pageBuilder: (context, state) {
-                      return const MaterialPage(child: MbtiScreen());
+                      return const MaterialPage(child: PersonalityScreen());
                     },
                     routes: [
                       GoRoute(
                         path:'detail',
-                        name: AppRoute.mbtiDetail.name,
-                        parentNavigatorKey: _mbtiNavigatorKey,
+                        name: AppRoute.personalityDetail.name,
+                        parentNavigatorKey: _personalityNavigatorKey,
                         pageBuilder: (context, state) {
-                          return MaterialPage(child: MbtiDetailScreen());
+                          return MaterialPage(child: PersonalityDetailScreen());
                         }
                       ),
                     ]

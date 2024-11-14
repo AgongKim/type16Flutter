@@ -4,8 +4,8 @@ import 'package:type16_project/globals.dart';
 import 'package:type16_project/presentation/base/base_scaffold_navigation.dart';
 import 'package:type16_project/routing/app_router.dart';
 
-class MbtiScreen extends StatelessWidget {
-  const MbtiScreen({super.key});
+class PersonalityScreen extends StatelessWidget {
+  const PersonalityScreen({super.key});
   static const dummyMbtiModels = {
     'ISTJ': 'ISTJ',
     'ISFJ': 'ISFJ',
@@ -44,7 +44,7 @@ class MbtiScreen extends StatelessWidget {
               elevation: 0,
               child: InkWell(
                 onTap: () {
-                  context.goNamed(AppRoute.mbtiDetail.name);
+                  context.goNamed(AppRoute.personalityDetail.name);
                 },
                 child: Center(
                   child: Text(

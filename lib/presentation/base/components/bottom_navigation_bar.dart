@@ -35,13 +35,13 @@ class CustomNavigationBar extends ConsumerWidget {
           ),
           NavigationDestination(
               icon: (currentIndex == 1)
-                  ? const Icon(Icons.person_search)
-                  : const Icon(Icons.person_search_outlined),
-              label: "MBTI"),
+                  ? const Icon(Icons.person_search, color: Color(0xFF2A2A2A))
+                  : const Icon(Icons.person_search_outlined, color: Color(0xFFDEDAD3)),
+              label: "성격유형"),
           NavigationDestination(
               icon: (currentIndex == 2)
-                  ? const Icon(Icons.wechat)
-                  : const Icon(Icons.wechat_outlined),
+                  ? const Icon(Icons.wechat, color: Color(0xFF2A2A2A))
+                  : const Icon(Icons.wechat_outlined, color: Color(0xFFDEDAD3)),
               label: "논쟁"),
           NavigationDestination(
               icon: SvgPicture.asset(
